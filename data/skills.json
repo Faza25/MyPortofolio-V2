@@ -1,0 +1,32 @@
+[
+  {
+    "id": "languages",
+    "title": "Bahasa Pemrograman",
+    "description": "Fondasi yang saya gunakan untuk membangun aplikasi.",
+    "skills": [
+      { "name": "TypeScript", "level": "Advanced", "proficiency": 88, "summary": "Tipe data, arsitektur frontend, dan integrasi API." },
+      { "name": "JavaScript", "level": "Advanced", "proficiency": 90, "summary": "ES modern, DOM, dan aplikasi interaktif." },
+      { "name": "Python", "level": "Intermediate", "proficiency": 68, "summary": "Otomasi, olah data dasar, dan scripting." }
+    ]
+  },
+  {
+    "id": "frameworks",
+    "title": "Framework & Library",
+    "description": "Teknologi utama untuk merancang pengalaman web modern.",
+    "skills": [
+      { "name": "React", "level": "Advanced", "proficiency": 86, "summary": "Komponen, hooks, state, dan pola UI reusable." },
+      { "name": "Next.js", "level": "Intermediate", "proficiency": 78, "summary": "App Router, static generation, dan optimasi SEO." },
+      { "name": "Tailwind CSS", "level": "Advanced", "proficiency": 90, "summary": "Sistem desain responsif dan konsisten." }
+    ]
+  },
+  {
+    "id": "tools",
+    "title": "Tools & Workflow",
+    "description": "Perangkat pendukung proses desain hingga pengiriman produk.",
+    "skills": [
+      { "name": "Git & GitHub", "level": "Intermediate", "proficiency": 80, "summary": "Version control dan kolaborasi berbasis branch." },
+      { "name": "Figma", "level": "Intermediate", "proficiency": 75, "summary": "Wireframe, prototipe, dan design system." },
+      { "name": "Netlify", "level": "Intermediate", "proficiency": 72, "summary": "Deploy statis dan continuous deployment." }
+    ]
+  }
+]

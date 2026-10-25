@@ -1,0 +1,40 @@
+{
+  "name": "Muhammad Faza Qowamudin",
+  "status": "Mahasiswa Informatika",
+  "titles": ["Mahasiswa Informatika", "Junior Web Developer"],
+  "photo": "/images/profile.webp",
+  "location": "Pekalongan, Indonesia",
+  "availability": "Dalam Pengembangan",
+  "introduction": "Saya merancang pengalaman digital yang sederhana, bermanfaat, dan menyenangkan untuk digunakan.",
+  "contact": {
+    "email": "mfazaqowamudin25@gmail.com",
+    "phone": "089665783012"
+  },
+  "socialLinks": [
+    { "platform": "GitHub", "url": "https://github.com/Faza25", "shortLabel": "GH", "description": "Kode dan proyek open source" },
+    { "platform": "LinkedIn", "url": "https://linkedin.com/in/zaast", "shortLabel": "in", "description": "Jejaring dan perjalanan profesional" },
+    { "platform": "Instagram", "url": "https://www.instagram.com/mf_zaast", "shortLabel": "IG", "description": "Cerita visual dan keseharian" }
+  ],
+  "personalInfo": {
+    "story": [
+      "Hai, saya M.Faza Qowamudin, seorang Junior Web Developer Juga sebagai mahasiswa Informatika yang memiliki ketertarikan pada teknologi dan kreativitas.",
+      "Saya terus belajar dan mengeksplorasi perkembangan teknologi untuk menambah wawasan saya. Pengalaman ini tidak hanya memperkuat keterampilan teknis saya, tetapi juga memicu ambisi saya untuk mendalami pemrograman"
+    ],
+    "interests": ["Frontend Development", "Cloud Computing", "AI Engineer"],
+    "goal": "Menjadi product engineer yang mampu menjembatani kebutuhan pengguna, desain, dan implementasi teknis untuk menciptakan produk yang berdampak.",
+    "facts": [
+      { "label": "Domisili", "value": "Pekalongan, Indonesia" },
+      { "label": "Fokus", "value": "Web & pengalaman pengguna" },
+      { "label": "Bahasa", "value": "Indonesia & Inggris" }
+    ]
+  },
+  "education": [
+    { "institution": "ITSNU Pekalongan", "degree": "S1 Informatika", "period": "2024 — Sekarang", "description": "Mempelajari rekayasa perangkat lunak, interaksi manusia dan komputer, serta pengembangan aplikasi web." },
+    { "institution": "SMK Islam 45 Wiradesa", "degree": "Teknik Komputer & Jaringan", "period": "2021 — 2024", "description": "Mempelajari dasar bahasa pemrograman dan ilmu tentang jaringan" }
+  ],
+  "experiences": [
+    { "organization": "UKM Kewirausahaan Technosantri", "role": "Koordinator Divisi Desain", "period": "2025 — 2026", "type": "Organisasi", "highlights": ["Mengelola Desain Sosial Media", "Mengadakan Pembelajaran Desain Bersama"] },
+    { "organization": "Nizam Computer", "role": "Siswa Magang", "period": "Jun — Agu 2023", "type": "Magang", "highlights": ["Mempelajari Hardware Tentang Jaringan", "Praktik Memasang WiFi Di tempat pelanggan"] },
+    { "organization": "dawd", "role": "Mentor Web Dasar", "period": "2024 — 2025", "type": "Komunitas", "highlights": ["Mendampingi 20 mahasiswa mempelajari HTML, CSS, dan JavaScript", "Menyusun materi workshop berbasis proyek"] }
+  ]
+}

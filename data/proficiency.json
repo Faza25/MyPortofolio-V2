@@ -1,0 +1,17 @@
+{
+  "Beginner": {
+    "label": "Beginner",
+    "description": "Memahami konsep dasar dan terus berlatih melalui proyek kecil.",
+    "color": "sky"
+  },
+  "Intermediate": {
+    "label": "Intermediate",
+    "description": "Nyaman digunakan dalam proyek nyata dengan pola yang terstruktur.",
+    "color": "blue"
+  },
+  "Advanced": {
+    "label": "Advanced",
+    "description": "Mampu merancang solusi, mengatasi kasus kompleks, dan berbagi praktik baik.",
+    "color": "indigo"
+  }
+}
