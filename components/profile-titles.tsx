@@ -52,7 +52,7 @@ export function ProfileTitles({ titles }: { titles: string[] }) {
     <div className="profile-titles" ref={containerRef}>
       <span className="sr-only">{titles.join(" dan ")}</span>
       <span className="profile-titles-text" aria-hidden="true">
-        <span className="profile-titles-reserve">{titles.join(" · ")}</span>
+        <span className="profile-titles-reserve">{titles.map((item) => <span key={item}>{item}</span>)}</span>
         <span className="profile-titles-output">
           {reducedMotion || titles.length < 2 ? titles.join(" · ") : title.slice(0, frame.length)}
           {!reducedMotion && titles.length > 1 && <span className="typing-caret" data-running={running} />}

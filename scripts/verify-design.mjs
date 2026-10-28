@@ -43,7 +43,8 @@ try {
     if (result.exceptionDetails) throw new Error(JSON.stringify(result.exceptionDetails));
     return result.result.value;
   };
-  const delay = () => evaluate('new Promise(resolve => setTimeout(resolve, 450))');
+  // Wait in the runner so disabled page JavaScript cannot stall the checks.
+  const delay = () => new Promise((resolve) => setTimeout(resolve, 450));
   const navigate = async (route) => {
     await command('Page.navigate', { url: 'http://127.0.0.1:4317' + route });
     for (let attempt = 0; attempt < 40; attempt++) { if (await evaluate('document.readyState === "complete" && !!document.querySelector("main")')) break; await delay(); }
@@ -51,13 +52,22 @@ try {
   };
   const check = (value, name) => { if (!value) throw new Error('FAILED: ' + name); console.log('PASS:', name); };
   await command('Page.enable');
+  await command('Emulation.setScriptExecutionDisabled', { value: false });
   await command('Runtime.enable');
   await command('Emulation.setDeviceMetricsOverride', { width: 1440, height: 1000, deviceScaleFactor: 1, mobile: false });
   await navigate('/');
   check(await evaluate('document.documentElement.scrollWidth <= innerWidth'), 'Desktop has no horizontal overflow');
-  check(await evaluate('getComputedStyle(document.querySelector(".site-header")).position === "fixed" && getComputedStyle(document.querySelector(".nav-shell")).backdropFilter.includes("blur")'), 'Navbar is fixed with glass blur from initial view');
+  check(await evaluate('getComputedStyle(document.querySelector(".site-header")).position === "fixed" && getComputedStyle(document.querySelector(".nav-shell")).borderTopWidth === "2px" && getComputedStyle(document.querySelector(".nav-shell")).borderRadius === "999px"'), 'Navbar is fixed with outlined pill styling from initial view');
   check(await evaluate('document.querySelector("main").getBoundingClientRect().top >= document.querySelector(".nav-shell").getBoundingClientRect().bottom'), 'Fixed navbar does not cover initial content');
   check(await evaluate('JSON.stringify([...document.querySelectorAll("main > section")].map(s=>s.id)) === JSON.stringify(["beranda","tentang","proyek","skill","kontak"])'), 'Section order and single-page navigation');
+  check(await evaluate('getComputedStyle(document.querySelector(".mobile-menu")).display === "none"'), 'Desktop menu button remains hidden');
+  check(await evaluate('document.querySelector(".hero-visual").dataset.motion === "running" && getComputedStyle(document.querySelector(".star-sticker")).animationPlayState === "running"'), 'Visible hero stickers animate');
+  await evaluate('document.querySelector(".motion-control").click()');
+  await delay();
+  check(await evaluate('document.querySelector(".motion-control").getAttribute("aria-pressed") === "true" && getComputedStyle(document.querySelector(".star-sticker")).animationName === "none"'), 'Decorative motion can be paused');
+  await evaluate('document.querySelector(".motion-control").click()');
+  await delay();
+  check(await evaluate('document.querySelector(".hero-visual").dataset.motion === "running" && document.querySelector(".hero-copy h1").getAnimations().length === 0'), 'Resume restores stickers without replaying hero entrance');
   check(await evaluate(`new Promise(resolve => {
     const started = performance.now();
     const element = document.querySelector('.profile-titles');
@@ -84,6 +94,7 @@ try {
   }
   check(await evaluate('document.querySelector(".desktop-menu .is-active").textContent === "Proyek"'), 'Scroll updates active navigation');
   check(await evaluate('document.querySelector(".typing-caret").dataset.running === "false"'), 'Profile typing stops offscreen');
+  check(await evaluate('document.querySelector(".hero-visual").dataset.motion === "paused" && getComputedStyle(document.querySelector(".star-sticker")).animationPlayState === "paused"'), 'Sticker loops pause offscreen');
   check(await evaluate('document.querySelector(".nav-shell").getBoundingClientRect().top === 10 && document.querySelector("#proyek").getBoundingClientRect().top >= document.querySelector(".nav-shell").getBoundingClientRect().bottom'), 'Fixed navbar and section anchor remain correctly spaced after scrolling');
   await evaluate('document.querySelectorAll(".filter-button")[2].click()');
   check(await evaluate('!!document.querySelector(".empty-state") && document.querySelectorAll(".project-card").length === 0'), 'Empty filter category');
@@ -137,6 +148,7 @@ try {
   check(await evaluate('document.querySelector(".profile-titles-output").textContent === "Mahasiswa Informatika · Junior Web Developer" && !document.querySelector(".typing-toggle")'), 'Reduced motion presents both titles as static text');
   await evaluate('document.documentElement.style.scrollBehavior=""');
   check(await evaluate('getComputedStyle(document.documentElement).scrollBehavior === "auto" && getComputedStyle(document.querySelector(".project-image")).transitionDuration === "0s"'), 'Reduced motion disables scrolling and image movement');
+  check(await evaluate('document.querySelector(".motion-control").disabled && getComputedStyle(document.querySelector(".star-sticker")).animationName === "none" && document.getAnimations().length === 0'), 'Reduced motion cancels all decorative and entrance animations');
   await command('Emulation.setEmulatedMedia', { features: [] });
   for (const width of [768, 1024]) {
     await command('Emulation.setDeviceMetricsOverride', { width, height: 1024, deviceScaleFactor: 1, mobile: false });
@@ -149,6 +161,9 @@ try {
   await command('Emulation.setDeviceMetricsOverride', { width: 320, height: 740, deviceScaleFactor: 1, mobile: true });
   check(await evaluate('document.documentElement.scrollWidth <= innerWidth'), 'Small phone has no horizontal overflow');
   check(runtimeErrors.length === 0, 'No browser runtime exceptions');
+  await command('Emulation.setScriptExecutionDisabled', { value: true });
+  await navigate('/');
+  check(await evaluate('getComputedStyle(document.querySelector(".hero-copy h1")).opacity === "1" && [...document.querySelectorAll(".section-block > .page-container")].every(el => getComputedStyle(el).opacity === "1" && el.getBoundingClientRect().height > 0)'), 'Hero and all sections remain visible without JavaScript');
   console.log('Screenshots saved to .preview/');
   await command('Browser.close');
 } finally {
