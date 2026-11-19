@@ -14,10 +14,10 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: "kelas-in",
-    title: "ZaFlow",
+    title: "Zaflow",
     category: "Web",
     description: "Aplikasi web privat untuk mencatat pemasukan dan pengeluaran freelancer.",
-    detail: "ZaFlow mencatat pemasukan dan pengeluaran freelancer dari berbagai platform. Frontend menggunakan React + Vite, backend menggunakan Laravel + Sanctum, dan data disimpan di MySQL.",
+    detail: "ZaFlow mencatat pemasukan dan pengeluaran freelancer dari berbagai platform. Frontend menggunakan React + Vite, backend menggunakan Laravel, dan data disimpan di MySQL.",
     year: 2026,
     technologies: ["ReactJS", "Laravel"],
     accent: "from-blue-600 to-cyan-400",

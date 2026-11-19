@@ -97,9 +97,6 @@ p { text-wrap: pretty; }
 .profile-titles-reserve > span { grid-area: 1 / 1; }
 .typing-caret { display: inline-block; width: 1px; height: 1em; margin-left: 3px; background: currentColor; vertical-align: -.12em; }
 .typing-caret[data-running="true"] { animation: typing-caret-blink 1s steps(2, jump-none) infinite; }
-.typing-toggle { display: grid; place-items: center; flex-shrink: 0; width: 44px; height: 44px; border-radius: 8px; color: var(--muted); }
-.typing-toggle svg { width: 16px; height: 16px; }
-.typing-toggle:hover { background: var(--accent-soft); color: var(--blue-dark); }
 @keyframes typing-caret-blink { to { opacity: 0; } }
 .identity-bottom { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 14px 6px 2px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
 .identity-code { margin-left: auto; font-size: 11px; }
@@ -115,11 +112,15 @@ p { text-wrap: pretty; }
 /* About: story and ambition, then education and experience. */
 .about-section { background: var(--soft); border-block: 1px solid var(--line); }
 .about-intro { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 20px; align-items: stretch; }
-.about-story { padding: 32px; background: var(--surface); border-radius: var(--radius); }
-.about-story > p { color: var(--muted); line-height: 1.9; font-size: 16px; margin-bottom: 18px; max-width: 70ch; }
-.profile-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; padding-top: 25px; border-top: 1px solid var(--line); }
-.profile-facts dt { color: var(--muted); font-size: 12px; }
-.profile-facts dd { font-size: 14px; font-weight: 600; margin-top: 6px; overflow-wrap: anywhere; }
+.about-story { min-width: 0; padding: 32px; background: var(--surface); border-radius: var(--radius); }
+.about-story h3 { margin-bottom: 22px; font-size: clamp(26px, 3vw, 30px); line-height: 1.2; font-weight: 600; letter-spacing: -.025em; }
+.about-story-copy { display: grid; gap: 18px; max-width: 70ch; }
+.about-story-copy p { color: var(--muted); line-height: 1.85; font-size: 15px; text-wrap: pretty; }
+.about-story-copy .story-lead { color: var(--ink); font-size: 18px; line-height: 1.7; }
+.profile-facts { display: grid; gap: 14px; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); }
+.profile-facts > div { display: grid; grid-template-columns: minmax(70px, .35fr) minmax(0, 1fr); gap: 12px; align-items: baseline; }
+.profile-facts dt { color: var(--muted); font-size: 13px; }
+.profile-facts dd { font-size: 14px; font-weight: 500; margin: 0; overflow-wrap: anywhere; }
 .career-panel { padding: 32px; background: #e7edfb; border-radius: var(--radius); color: #243958; }
 .career-panel h3 { max-width: 15ch; font-size: 30px; line-height: 1.2; font-weight: 600; letter-spacing: -.025em; margin-bottom: 22px; }
 .career-panel > p { font-size: 15px; line-height: 1.85; color: #435777; }
@@ -131,7 +132,15 @@ p { text-wrap: pretty; }
 .subsection-heading h3 { font-size: 23px; font-weight: 600; letter-spacing: -.025em; }
 .muted { color: var(--muted); font-size: 12px; margin-left: auto; }
 .education-list { margin-top: 28px; }
-.education-list li { position: relative; margin-left: 5px; padding-left: 24px; padding-bottom: 30px; border-left: 1px solid var(--line); }
+.education-card { display: flex; flex-direction: column; }
+.education-decoration { position: relative; display: flex; align-items: center; gap: clamp(18px, 3vw, 32px); flex: 1; min-height: 180px; margin-top: 32px; padding: 28px 16px 12px; border-top: 1px solid var(--line); color: var(--blue-dark); }
+.education-book { width: clamp(56px, 7vw, 88px); height: auto; transform: rotate(-9deg); background: #ffe8a6; border-radius: 50%; padding: 8px; }
+.education-decoration p { font-family: var(--font-heading); font-size: clamp(26px, 3vw, 38px); font-weight: 600; line-height: 1.15; letter-spacing: -.025em; }
+.education-decoration p span { color: var(--ink); }
+.education-spark { position: absolute; width: 24px; height: 24px; right: 4px; top: 24px; color: #bd4848; transform: rotate(12deg); }
+.education-list li { position: relative; margin-left: 5px; padding-left: 24px; padding-bottom: 30px; }
+.timeline-line { position: absolute; left: 0; top: 5px; bottom: -5px; width: 1px; background: var(--line); }
+.education-list li:last-child .timeline-line { bottom: 0; }
 .education-list li:last-child { padding-bottom: 0; }
 .timeline-dot { position: absolute; top: 5px; left: -4px; width: 7px; height: 7px; background: var(--blue); border-radius: 50%; }
 .period { font-size: 12px; font-weight: 500; color: var(--blue-dark); }
@@ -404,9 +413,14 @@ h1, h2, h3 { font-weight: 700; }
 .section-heading :is(h1,h2) span { color: var(--blue-dark); }
 .about-section, .skills-section { background: var(--canvas); border-block: 1px solid var(--line); }
 .about-story, .career-panel, .journey-grid > div, .skill-category { border: var(--border-card); }
-.career-panel { background: #ffe8a6; color: var(--ink); }
+.career-panel { display: flex; flex-direction: column; background: #ffe8a6; color: var(--ink); }
+.motivation-decoration { display: flex; align-items: flex-end; justify-content: center; flex: 1; padding-top: 28px; }
+.motivation-decoration svg { display: block; width: 100%; max-width: 360px; height: auto; }
 .career-panel > p, .career-interests span { color: #504223; }
-.career-interests { border-color: #b9a775; }
+.career-interest-group { margin-top: 28px; padding-top: 24px; border-top: 1px solid #b9a775; }
+.career-interest-group h4 { font-size: 16px; font-weight: 600; }
+.career-interest-group .career-interests { margin-top: 14px; padding: 0; border: 0; list-style: none; gap: 10px; }
+.career-interests li { padding: 8px 12px; border: 1px solid #b9a775; border-radius: 999px; color: #504223; font-size: 13px; font-weight: 500; }
 .journey-grid > div:last-child { background: #edf2ff; }
 .project-card { border: 2px solid var(--ink); box-shadow: var(--offset-shadow); transition: transform .25s, box-shadow .25s; }
 .project-preview { background: #e8efff; border-bottom: 1.5px solid var(--ink); }

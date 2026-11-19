@@ -1,11 +1,10 @@
 {
   "name": "Muhammad Faza Qowamudin",
   "status": "Mahasiswa Informatika",
-  "titles": ["Mahasiswa Informatika", "Junior Web Developer"],
-  "photo": "/images/profile.webp",
+  "titles": ["Mahasiswa Informatika ITSNU Pekalongan", "Web Developer"],
+  "photo": "/images/profile.png",
   "location": "Pekalongan, Indonesia",
-  "availability": "Dalam Pengembangan",
-  "introduction": "Saya merancang pengalaman digital yang sederhana, bermanfaat, dan menyenangkan untuk digunakan.",
+  "introduction": "Saya senang merancang dan mengembangkan pengalaman digital yang tidak hanya menarik secara tampilan, tetapi juga mudah dipahami dan nyaman digunakan.",
   "contact": {
     "email": "mfazaqowamudin25@gmail.com",
     "phone": "089665783012"
@@ -17,24 +16,24 @@
   ],
   "personalInfo": {
     "story": [
-      "Hai, saya M.Faza Qowamudin, seorang Junior Web Developer Juga sebagai mahasiswa Informatika yang memiliki ketertarikan pada teknologi dan kreativitas.",
-      "Saya terus belajar dan mengeksplorasi perkembangan teknologi untuk menambah wawasan saya. Pengalaman ini tidak hanya memperkuat keterampilan teknis saya, tetapi juga memicu ambisi saya untuk mendalami pemrograman"
+      "Saya adalah mahasiswa Informatika yang memiliki ketertarikan besar terhadap dunia teknologi dan perkembangan digital. Saya senang mengeksplorasi hal-hal baru, mempelajari berbagai teknologi, serta mencoba mengembangkan ide menjadi sesuatu yang bermanfaat. Bagi saya, setiap hal baru adalah kesempatan untuk menambah pengetahuan, mengasah keterampilan, dan memperluas pengalaman.",
+      "Saya memiliki rasa ingin tahu yang tinggi dan selalu berusaha untuk terus belajar, terutama dalam bidang pemrograman dan pengembangan website. Melalui berbagai proyek dan pengalaman, saya ingin terus meningkatkan kemampuan, menghadapi tantangan baru, serta menciptakan solusi digital yang kreatif, sederhana, dan bermanfaat bagi banyak orang."
     ],
     "interests": ["Frontend Development", "Cloud Computing", "AI Engineer"],
     "goal": "Menjadi product engineer yang mampu menjembatani kebutuhan pengguna, desain, dan implementasi teknis untuk menciptakan produk yang berdampak.",
     "facts": [
       { "label": "Domisili", "value": "Pekalongan, Indonesia" },
       { "label": "Fokus", "value": "Web & pengalaman pengguna" },
-      { "label": "Bahasa", "value": "Indonesia & Inggris" }
+      { "label": "Bahasa", "value": "Indonesia" }
     ]
   },
   "education": [
-    { "institution": "ITSNU Pekalongan", "degree": "S1 Informatika", "period": "2024 — Sekarang", "description": "Mempelajari rekayasa perangkat lunak, interaksi manusia dan komputer, serta pengembangan aplikasi web." },
-    { "institution": "SMK Islam 45 Wiradesa", "degree": "Teknik Komputer & Jaringan", "period": "2021 — 2024", "description": "Mempelajari dasar bahasa pemrograman dan ilmu tentang jaringan" }
+    { "institution": "ITSNU Pekalongan", "degree": "S1 Informatika", "period": "2024 — Sekarang", "description": "Mendalami dunia teknologi informasi dengan fokus pada rekayasa perangkat lunak, perancangan pengalaman pengguna (UI/UX), serta pengembangan aplikasi berbasis web. Terus mengasah kemampuan berpikir logis, pemecahan masalah, dan kreativitas dalam menciptakan solusi digital yang inovatif, fungsional, dan relevan dengan kebutuhan pengguna." },
+    { "institution": "SMK Islam 45 Wiradesa", "degree": "Teknik Komputer & Jaringan", "period": "2021 — 2024", "description": "Membangun dasar pengetahuan dan keterampilan di bidang teknologi informasi, khususnya dalam perakitan dan pemeliharaan komputer, administrasi jaringan, serta konfigurasi perangkat jaringan. Mengembangkan kemampuan analisis, pemecahan masalah teknis, dan pemahaman infrastruktur IT sebagai fondasi untuk terus berkembang di dunia teknologi dan komputasi." }
   ],
   "experiences": [
     { "organization": "UKM Kewirausahaan Technosantri", "role": "Koordinator Divisi Desain", "period": "2025 — 2026", "type": "Organisasi", "highlights": ["Mengelola Desain Sosial Media", "Mengadakan Pembelajaran Desain Bersama"] },
-    { "organization": "Nizam Computer", "role": "Siswa Magang", "period": "Jun — Agu 2023", "type": "Magang", "highlights": ["Mempelajari Hardware Tentang Jaringan", "Praktik Memasang WiFi Di tempat pelanggan"] },
-    { "organization": "dawd", "role": "Mentor Web Dasar", "period": "2024 — 2025", "type": "Komunitas", "highlights": ["Mendampingi 20 mahasiswa mempelajari HTML, CSS, dan JavaScript", "Menyusun materi workshop berbasis proyek"] }
+    { "organization": "Komisi Pemilihan Umum (KPU) – Kab. Pekalongan", "role": "Anggota Kelompok Penyelenggara Pemungutan Suara (KPPS)", "period": "November 2024", "type": "Sosial", "highlights": ["Berkoordinasi dengan tim KPPS, saksi, dan pengawas lapangan untuk memastikan seluruh alur pemungutan suara berjalan tertib, transparan, dan aman.", "Membantu penyusunan dan penginputan rekapitulasi laporan hasil penghitungan suara secara presisi."] },
+    { "organization": "Nizam Computer", "role": "Praktik Kerja Lapangan", "period": "Juni - Agustus 2023", "type": "Magang", "highlights": ["Mempelajari Hardware Tentang Jaringan", "Praktik Memasang WiFi Di tempat pelanggan"] }
   ]
 }

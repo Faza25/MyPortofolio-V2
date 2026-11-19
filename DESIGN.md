@@ -13,8 +13,10 @@ The homepage is an Experience surface: identity and real photograph lead into ba
 
 ## Motion
 
+Skill meters fill once on viewport entry using GSAP scaleX, preserving their actual widths and accessible proficiency values. Education connectors grow downward while entry text appears in a short sequence. These effects share the motion pause and reduced-motion controls; their section containers do not also reveal. All values and timeline content are visible without JavaScript.
+
 `portfolio_redesign_animation_codex.md` extends the same visual direction. The identity introduction uses a 560ms rise/fade with 90ms staggering. The portrait remains anchored; only its two stickers float by 4–5px on 3.8–4.6s cycles. Section containers reveal once, with no nested reveal or persistent hidden state. All content is visible without JavaScript.
 
-`PageMotion` uses IntersectionObserver and the Web Animations API, without dependencies or scroll listeners. Sticker loops pause outside the viewport and in hidden tabs. The footer provides a decorative-motion pause control; role typing retains its own pause button. System reduced-motion changes immediately cancel entrance effects and disable decorative movement. Keyboard focus completes any pending reveal immediately.
+`PageMotion` uses IntersectionObserver and GSAP with scoped cleanup, without scroll listeners. Sticker loops pause outside the viewport and in hidden tabs. The footer provides a decorative-motion pause control; role typing retains its own pause button. System reduced-motion changes immediately cancel entrance effects and disable decorative movement. Keyboard focus completes any pending reveal immediately.
 
 Cards, icons, navigation and contact actions use 200ms feedback. Pressed buttons retain tactile feedback; disabled buttons do not lift. Desktop navigation has no menu button; the right-aligned portrait and stacked mobile layout are preserved.

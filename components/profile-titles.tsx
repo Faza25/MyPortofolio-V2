@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { UiIcon } from "@/components/ui-icon";
 
 export function ProfileTitles({ titles }: { titles: string[] }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -9,9 +8,8 @@ export function ProfileTitles({ titles }: { titles: string[] }) {
   const [reducedMotion, setReducedMotion] = useState(true);
   const [visible, setVisible] = useState(false);
   const [tabActive, setTabActive] = useState(true);
-  const [paused, setPaused] = useState(false);
   const title = titles[frame.index] ?? "";
-  const running = titles.length > 1 && !reducedMotion && visible && tabActive && !paused;
+  const running = titles.length > 1 && !reducedMotion && visible && tabActive;
 
   useEffect(() => {
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -58,13 +56,6 @@ export function ProfileTitles({ titles }: { titles: string[] }) {
           {!reducedMotion && titles.length > 1 && <span className="typing-caret" data-running={running} />}
         </span>
       </span>
-      {!reducedMotion && titles.length > 1 && <button
-        type="button"
-        className="typing-toggle"
-        aria-label={paused ? "Lanjutkan animasi title" : "Jeda animasi title"}
-        title={paused ? "Lanjutkan animasi title" : "Jeda animasi title"}
-        onClick={() => setPaused((value) => !value)}
-      ><UiIcon name={paused ? "play" : "pause"} /></button>}
     </div>
   );
 }

@@ -6,7 +6,7 @@
     "skills": [
       { "name": "TypeScript", "level": "Advanced", "proficiency": 88, "summary": "Tipe data, arsitektur frontend, dan integrasi API." },
       { "name": "JavaScript", "level": "Advanced", "proficiency": 90, "summary": "ES modern, DOM, dan aplikasi interaktif." },
-      { "name": "Python", "level": "Intermediate", "proficiency": 68, "summary": "Otomasi, olah data dasar, dan scripting." }
+      { "name": "PhP", "level": "Intermediate", "proficiency": 68, "summary": "Otomasi, olah data dasar, dan scripting." }
     ]
   },
   {

@@ -56,7 +56,7 @@ export function ContactForm() {
     <div className="form-field"><label htmlFor="contact-email">Alamat email <span>*</span></label><input id="contact-email" name="email" type="email" autoComplete="email" placeholder="kamu@email.com" required maxLength={254} aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? "email-error" : undefined} />{errors.email && <p className="field-error" id="email-error">{errors.email}</p>}</div>
     <div className="form-field"><label htmlFor="contact-message">Pesan <span>*</span></label><textarea id="contact-message" name="message" rows={5} placeholder="Ceritakan ide atau hal yang ingin kamu diskusikan…" required maxLength={5000} aria-invalid={Boolean(errors.message)} aria-describedby={errors.message ? "message-error" : undefined} />{errors.message && <p className="field-error" id="message-error">{errors.message}</p>}</div>
     {submitError && <p className="form-alert" role="alert">{submitError}</p>}
-    <button className="button button-primary submit-button" disabled={isSending} type="submit">{isSending ? "Mengirim pesan…" : "Kirim pesan"}<UiIcon name="arrow-up-right" /></button>
+    <button className="button button-primary submit-button" disabled={isSending} type="submit">{isSending ? "Mengirim pesan…" : "Kirim pesan"}<UiIcon name="mail" /></button>
     <p className="form-note">Pesanmu akan diteruskan langsung ke email saya.</p>
   </form>;
 }
